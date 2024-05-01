@@ -57,6 +57,11 @@ int main (void){
 		 inc_distance = calc_displacment(prev_lat, prev_long, current_lat, current_long, 'm'); // we measure the small distance between current and prev position
 		
 		 total_distance += inc_distance; 				// we add inc displacment to total distance
+   		
+     		 if(sw1_read()){						//this function  should be edited to be implemented using interrupts
+		 LED_ON(RED_LED);
+		 break;
+		 }
 }
 */
 
