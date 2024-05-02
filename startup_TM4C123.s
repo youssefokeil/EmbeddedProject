@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ;/**************************************************************************//**
 ; * @file     startup_TM4C123.s
 ; * @brief    CMSIS Cortex-M4 Core Device Startup File for
