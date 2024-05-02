@@ -69,7 +69,7 @@ int main (void){
 total_distance=150;
  
 if (total_distance>=100){
-	 LED_ON(RED_LED);
+	 LED_ON(GREEN_LED);
 }
 }
 }
