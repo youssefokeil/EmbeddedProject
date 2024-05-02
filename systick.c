@@ -59,13 +59,7 @@ void wait_5ms(uint32_t num) {
     }
 }
 
-void delay_10ms(void) {
-    NVIC_ST_CTRL_R = 0; // Disable SysTick during setup
-    NVIC_ST_RELOAD_R = (800000) - 1; // Set reload value for 10 ms delay
-    NVIC_ST_CURRENT_R = 0; // Clear current register and COUNTFLAG
-    NVIC_ST_CTRL_R = 5; // Enable SysTick with core clock and interrupts (101 = 5)
-   while ((NVIC_ST_CTRL_R & 0x10000) == 0); // Wait until COUNTFLAG is set
-}
+
 
 void wait_10ms(uint32_t num) {
     unsigned long k;
