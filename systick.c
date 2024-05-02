@@ -18,7 +18,7 @@ void delay_s(void) {
     uint8_t i;
     for (i = 0; i < 5; i++) { // Repeat delay for 5 times (1 second)
         SysTick_Init(); // Initialize SysTick with desired delay
-        while (!(NVIC_ST_CTRL_R & (1 << 16))); // Wait until COUNTFLAG is set
+        while ((NVIC_ST_CTRL_R & 0x10000) == 0); // Wait until COUNTFLAG is set
     }
 }
 
@@ -34,7 +34,7 @@ void delay_ms(void) {
     NVIC_ST_RELOAD_R = 80000 - 1; // Set reload value for 1 ms delay
     NVIC_ST_CURRENT_R = 0; // Clear current register and COUNTFLAG
     NVIC_ST_CTRL_R = 5; // Enable SysTick with core clock and interrupts (101 = 5)
-    while (!(NVIC_ST_CTRL_R & (1 << 16))); // Wait until COUNTFLAG is set
+    while ((NVIC_ST_CTRL_R & 0x10000) == 0); // Wait until COUNTFLAG is set
 }
 
 void wait_ms(uint32_t num) {
@@ -49,7 +49,7 @@ void delay_5ms(void) {
     NVIC_ST_RELOAD_R = (400000) - 1; // Set reload value for 5 ms delay
     NVIC_ST_CURRENT_R = 0; // Clear current register and COUNTFLAG
     NVIC_ST_CTRL_R = 5; // Enable SysTick with core clock and interrupts (101 = 5)
-    while (!(NVIC_ST_CTRL_R & (1 << 16))); // Wait until COUNTFLAG is set
+    while ((NVIC_ST_CTRL_R & 0x10000) == 0); // Wait until COUNTFLAG is set
 }
 
 void wait_5ms(uint32_t num) {
@@ -64,7 +64,7 @@ void delay_10ms(void) {
     NVIC_ST_RELOAD_R = (800000) - 1; // Set reload value for 10 ms delay
     NVIC_ST_CURRENT_R = 0; // Clear current register and COUNTFLAG
     NVIC_ST_CTRL_R = 5; // Enable SysTick with core clock and interrupts (101 = 5)
-    while (!(NVIC_ST_CTRL_R & (1 << 16))); // Wait until COUNTFLAG is set
+   while ((NVIC_ST_CTRL_R & 0x10000) == 0); // Wait until COUNTFLAG is set
 }
 
 void wait_10ms(uint32_t num) {
