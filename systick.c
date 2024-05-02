@@ -6,7 +6,7 @@ static volatile void (*g_callBackPtrSystick)(void) = NULL_PTR;
 
 void SysTick_Init(void) {
     // Max Reload_value = 0x00FFFFFF --> 0.2 sec
-    // Reload_value = (required_delay * sysClk(80M)) - 1
+    // Reload_value = (required_delay * sysClk(16M)) - 1
     NVIC_ST_CTRL_R = 0; // Disable SysTick during setup
     NVIC_ST_RELOAD_R = MAX - 1; // Set reload value for desired delay
     NVIC_ST_CURRENT_R = 0; // Clear current register and COUNTFLAG
