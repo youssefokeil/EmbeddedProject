@@ -1,3 +1,4 @@
+/*
 #include "eeprom.h"
 
 void delay_n(int n)
@@ -87,4 +88,5 @@ int eeprom_read(uint8_t addr,uint8_t blk)
 	data = EEPROM_EERDWR_R;
 	while(EEPROM_EEDONE_R & EEPROM_EEDONE_WORKING);
 	return data;
-}
+}*/
+
