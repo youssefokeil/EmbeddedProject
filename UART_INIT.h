@@ -4,6 +4,8 @@
 #include"tm4c123gh6pm.h"
 #include"STD_TYPES.h"
 void UART_INI(void);
-uint8_t READ_UART(void);
-void WRITE_UART(uint8_t);
+unsigned char READ_UART(void);
+void WRITE_UART(char h);
+//unsigned char* code_sent(unsigned char* code);
+uint8_t *GPS_GET_LINE(void);   	
 #endif
