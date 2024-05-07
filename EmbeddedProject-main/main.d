@@ -1,0 +1,11 @@
+.\main.o: main.c
+.\main.o: CALC_DISP.h
+.\main.o: GPIO_DRIVER.H
+.\main.o: tm4c123gh6pm.h
+.\main.o: UART_INIT.h
+.\main.o: STD_TYPES.h
+.\main.o: D:\Keil\ARM\ARMCC\bin\..\include\math.h
+.\main.o: NMEA.h
+.\main.o: D:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\main.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\main.o: D:\Keil\ARM\ARMCC\bin\..\include\string.h

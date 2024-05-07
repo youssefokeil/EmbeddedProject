@@ -1,0 +1,1 @@
+.\eepromfunc.o: eepromfunc.c
