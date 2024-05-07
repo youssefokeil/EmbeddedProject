@@ -45,9 +45,9 @@ unsigned char test=(unsigned char)READ_UART;
 		code[counter]=test;
 	}
 */
- uint8_t *GPS_GET_LINE(void){
-	uint8_t buffer[82];    				//longest nema massege is 82
-	uint8_t read_ch;			
+ void *GPS_GET_LINE(unsigned char *buffer){
+	//uint8_t buffer[82];    				//longest nema massege is 82
+	unsigned char read_ch;			
 	int i=1;
 	//begins saving data when reads $
 	do{
@@ -60,7 +60,7 @@ unsigned char test=(unsigned char)READ_UART;
 	while(i<82){
 		read_ch=READ_UART();
 		WRITE_UART(read_ch);
-		if(read_ch !=0 &&read_ch !='$')								// doesn't take newlines
+		if(read_ch !='$')								// doesn't take newlines
 		{
 			buffer[i]=read_ch;
 			i++;
@@ -69,5 +69,5 @@ unsigned char test=(unsigned char)READ_UART;
 			break;
 		}
 	}
-	return buffer;
+	//return buffer;
 }

@@ -3,6 +3,7 @@
 #include "GPIO_DRIVER.H"
 #include "UART_INIT.h"
 #include <math.h>
+#include "NMEA.h"
 //#include <TM4C123.h>
 
 
@@ -30,7 +31,9 @@ int main (void){
 	
 	SWITCH_INIT();
 	LED_INIT();
-
+	UART_INI();
+	
+	
 	while(1){
 		//---this whole commented section will be used once we finish all drivers in second milestone---
 		//---there is some documentaion to understand the flow of the function---
@@ -66,14 +69,27 @@ int main (void){
 */
 
 //this is just a driver to test if there is any errors
+/*
 total_distance=150;
  
 if (total_distance>=100){
 	 LED_ON(GREEN_LED);
-}
-}
-}
+}*/
+float h;
+int i;
+unsigned char buffer[100];
+ GPS_GET_LINE(buffer);
 
+ for(i=0;i<100;i++)
+ {
+	 if(buffer[i]!=0)
+	 WRITE_UART(buffer[i]);
+ }
+WRITE_UART('X');
+	}
+	
+
+}
 
 
 
