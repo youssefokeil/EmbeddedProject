@@ -1,20 +1,23 @@
 #include"UART_INIT.h"
-
+/////////////////////////////////////////PortD uart2
 void UART_INI(void){
-	SYSCTL_RCGCUART_R |=0x01;
-	SYSCTL_RCGCGPIO_R |= 0x01;
-	GPIO_PORTA_LOCK_R =GPIO_LOCK_KEY; // unlocking the PORTS
-	GPIO_PORTA_CR_R |=0x003;
-	UART0_CTL_R=0;
-	UART0_IBRD_R=520;
-	UART0_FBRD_R=53;
-	UART0_LCRH_R=0x070; // 8bit,no parity bits, one stop,FIFOs
-	UART0_CTL_R|=0x01; //enabling the UART, TX, RX
-	GPIO_PORTA_DEN_R|=0x03;
-	GPIO_PORTA_AFSEL_R|=0x003;
-	GPIO_PORTA_PCTL_R|=0x011;
-	GPIO_PORTA_AMSEL_R&=(~0x03); //enable transmit and rescieve and enable uart end of config
+	SYSCTL_RCGCUART_R |=0x08;  
+	SYSCTL_RCGCGPIO_R |= 0x08;
+	GPIO_PORTD_LOCK_R =GPIO_LOCK_KEY; // unlocking the PORTS
+	GPIO_PORTD_CR_R |=0xc0;
+	UART2_CTL_R=0;
+	UART2_IBRD_R=520;
+	UART2_FBRD_R=53;
+	UART2_LCRH_R=0x070; // 8bit,no parity bits, one stop,FIFOs
+	UART2_CTL_R|=0x01; //enabling the UART, TX, RX
+	GPIO_PORTD_DEN_R|=0xc0;
+	GPIO_PORTD_AFSEL_R|=0xc0;
+	GPIO_PORTD_PCTL_R|=0x1100 0000;
+	GPIO_PORTD_AMSEL_R&=(~0xc0); //enable transmit and recieve and enable uart end of config
 }
+//////////////////////////////////////////////
+
+
 uint8_t CHECK_UART_READ_DATA(void){
 	if((UART0_FR_R &(0x01<<4))==0)return 1;    //if not empty
 	else return 0;													 //else empty
