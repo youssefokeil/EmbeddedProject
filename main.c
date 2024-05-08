@@ -1,4 +1,4 @@
-
+#include "decoder.h"
 #include "CALC_DISP.h"
 #include "GPIO_DRIVER.H"
 #include "UART_INIT.h"
@@ -75,16 +75,29 @@ total_distance=150;
 if (total_distance>=100){
 	 LED_ON(GREEN_LED);
 }*/
-float h;
-int i;
-unsigned char buffer[100];
+float a;
+char buffer[100];
+char copy[100];
+char x;
+char y;
+float b;
  GPS_GET_LINE(buffer);
-
- for(i=0;i<100;i++)
+ refill(buffer,copy);
+ y=getlongitudeDirection(copy);
+  refill(buffer,copy);
+ x=getLatitudeDirection(copy);
+ /* refill(buffer,copy);
+ a=getLatitude(copy);
+  refill(buffer,copy);
+ b=getlongitude(copy);
+  refill(buffer,copy);*/
+ WRITE_UART(y);
+ WRITE_UART(x);
+ /*for(i=0;i<100;i++)
  {
 	 if(buffer[i]!=0)
 	 WRITE_UART(buffer[i]);
- }
+ }*/
 WRITE_UART('X');
 	}
 	
