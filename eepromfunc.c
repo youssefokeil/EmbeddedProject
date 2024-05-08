@@ -1,14 +1,10 @@
-/*
-#include "eeprom.c"
+#include <stdint.h>
+#define POINT_LATITUDE_ADDR 0x10 // Example address for latitude data in EEPROM
+#define POINT_LONGITUDE_ADDR 0x14 // Example address for longitude data in EEPROM
 
-    // Initialize EEPROM
-    EEPROMInit();
-
-			void saveCoordinatesToEEPROM(float latitude, float longitude) {
-    // Save latitude to EEPROM (block number 0, address 0)
-    eeprom_write(latitude, 0, 0);
-
-    // Save longitude to EEPROM (block number 0, address 4)
-    eeprom_write(longitude, 0, 4);
+// Function to save latitude and longitude to EEPROM
+void savePointToEEPROM(uint32_t latitude, uint32_t longitude) {
+    // Write latitude and longitude to EEPROM
+    EEPROMProgram(&latitude, POINT_LATITUDE_ADDR, sizeof(uint32_t));
+    EEPROMProgram(&longitude, POINT_LONGITUDE_ADDR, sizeof(uint32_t));
 }
-*/
