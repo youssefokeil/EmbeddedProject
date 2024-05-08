@@ -86,11 +86,11 @@ float b;
  y=getlongitudeDirection(copy);
   refill(buffer,copy);
  x=getLatitudeDirection(copy);
- /* refill(buffer,copy);
+  refill(buffer,copy);
  a=getLatitude(copy);
   refill(buffer,copy);
  b=getlongitude(copy);
-  refill(buffer,copy);*/
+  refill(buffer,copy);
  WRITE_UART(y);
  WRITE_UART(x);
  /*for(i=0;i<100;i++)
