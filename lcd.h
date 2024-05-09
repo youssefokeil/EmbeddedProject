@@ -15,7 +15,7 @@
 //define DATA pins
 
 #define LCD_D4                      GPIO_PIN_4          // B4:B7
-#define LCD_D5                      GPIO_PIN_5          
+#define LCD_D5                      GPIO_PIN_5
 #define LCD_D6                      GPIO_PIN_6
 #define LCD_D7                      GPIO_PIN_7
 
@@ -25,7 +25,7 @@
 #define LCD_CONTROL_PORT            GPIO_PORTA_BASE     // Port A
 
 #define LCD_RS                      GPIO_PIN_2          // A2
-#define LCD_EN_PIN                  GPIO_PIN_3          // A3
+#define LCD_EN                      GPIO_PIN_3          // A3
 
 #define LCD_CONTROL_PORT_ENABLE     SYSCTL_PERIPH_GPIOA
 
