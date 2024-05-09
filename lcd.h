@@ -1,13 +1,8 @@
-/*****************************************************
-Author: Ahmed Tarek Sayed Mohamed Elsayed Awad Bishbishy
-Version: 1.0.0
-******************************************************/
-
 #ifndef LCD_H_
 #define LCD_H_
 
 //==================== Header Files ====================
-
+#include "sysctl.h"
 #include "gpio.h"
 #include <stdint.h>
 #include <stdbool.h>
@@ -15,16 +10,16 @@ Version: 1.0.0
 //==================== Macro ===========================
 //---------------
 //Data port
-#define LCD_DATA_PORT               GPIO_PORTC_BASE     // Port C
+#define LCD_DATA_PORT               GPIO_PORTB_BASE     // Port B (1)
 
 //define DATA pins
 
-#define LCD_D4                      GPIO_PIN_4
-#define LCD_D5                      GPIO_PIN_5
+#define LCD_D4                      GPIO_PIN_4          // B4:B7
+#define LCD_D5                      GPIO_PIN_5          
 #define LCD_D6                      GPIO_PIN_6
 #define LCD_D7                      GPIO_PIN_7
 
-#define LCD_DATA_PORT_ENABLE        SYSCTL_PERIPH_GPIOC
+#define LCD_DATA_PORT_ENABLE        SYSCTL_PERIPH_GPIOB // (2)
 
 //Control port
 #define LCD_CONTROL_PORT            GPIO_PORTA_BASE     // Port A
@@ -47,11 +42,11 @@ Version: 1.0.0
 
 extern void Lcd_Init(void);                                         // Initialize ports which will be used
 extern void Lcd_Cmd(uint8_t cmd);                                   // Perform Commands from above using its digit
-extern void Lcd_Chr(uint8_t row, uint8_t column, uint8_t out_char); // Print character in specific location. Note: Display is 2 rows and 16 columns 
+extern void Lcd_Chr(uint8_t row, uint8_t column, uint8_t out_char); // Print character in specific location. Note: Display is 2 rows and 16 columns
 extern void Lcd_Chr_Cp(uint8_t out_char);                           // Print character in the succeeding slot.
 extern void Lcd_Text(uint8_t row, uint8_t column, uint8_t *text);   // Print text. *text is pointer of a variable that stores multiple characters.
 extern void Lcd_Text_Cp(uint8_t *text);                             // ""                          ""
 
 
-//--------------------------------------------------------------- 
+//---------------------------------------------------------------
 #endif // LCD_H_
