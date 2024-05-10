@@ -6,11 +6,11 @@
 #include "gpio.h"
 #include <stdint.h>
 #include <stdbool.h>
-
+#include "hw_memmap.h"
 //==================== Macro ===========================
 //---------------
 //Data port
-#define LCD_DATA_PORT               GPIO_PORTB_DATA_R     // Port B (1)
+#define LCD_DATA_PORT               GPIO_PORTB_BASE      // Port B (1)
 
 //define DATA pins
 
@@ -22,7 +22,7 @@
 #define LCD_DATA_PORT_ENABLE        SYSCTL_PERIPH_GPIOB // (2)
 
 //Control port
-#define LCD_CONTROL_PORT            GPIO_PORTA_DATA_R     // Port A
+#define LCD_CONTROL_PORT            GPIO_PORTA_BASE     // Port A
 
 #define LCD_RS                      GPIO_PIN_2          // A2
 #define LCD_EN                      GPIO_PIN_3          // A3
