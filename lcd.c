@@ -1,6 +1,6 @@
 #include <stdint.h>
 #include <stdbool.h>
-//#include "inc/hw_memmap.h"
+#include "hw_memmap.h"
 #include "sysctl.h"
 #include "gpio.h"
 #include "systick.h"
