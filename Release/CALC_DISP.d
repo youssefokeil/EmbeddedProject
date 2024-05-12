@@ -10,6 +10,7 @@ CALC_DISP.obj: C:/ti/ccs1270/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sy
 CALC_DISP.obj: C:/ti/ccs1270/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_types.h
 CALC_DISP.obj: C:/ti/ccs1270/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_limits.h
 CALC_DISP.obj: ../CALC_DISP.h
+CALC_DISP.obj: ../CALC_DISP.h
 
 ../CALC_DISP.c:
 
@@ -28,6 +29,8 @@ C:/ti/ccs1270/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/cdefs.h:
 C:/ti/ccs1270/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_types.h:
 
 C:/ti/ccs1270/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_limits.h:
+
+../CALC_DISP.h:
 
 ../CALC_DISP.h:
 

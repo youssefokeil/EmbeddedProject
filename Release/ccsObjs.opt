@@ -5,6 +5,8 @@
 "./decoder.obj"
 "./eeprom.obj"
 "./eepromfunc.obj"
+"./lcd.obj"
+"./lcd_test.obj"
 "./main.obj"
 "./systick.obj"
 "./tm4c123gh6pm_startup_ccs.obj"

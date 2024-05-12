@@ -16,6 +16,8 @@ C_SRCS += \
 ../decoder.c \
 ../eeprom.c \
 ../eepromfunc.c \
+../lcd.c \
+../lcd_test.c \
 ../main.c \
 ../systick.c \
 ../tm4c123gh6pm_startup_ccs.c 
@@ -28,6 +30,8 @@ C_DEPS += \
 ./decoder.d \
 ./eeprom.d \
 ./eepromfunc.d \
+./lcd.d \
+./lcd_test.d \
 ./main.d \
 ./systick.d \
 ./tm4c123gh6pm_startup_ccs.d 
@@ -40,6 +44,8 @@ OBJS += \
 ./decoder.obj \
 ./eeprom.obj \
 ./eepromfunc.obj \
+./lcd.obj \
+./lcd_test.obj \
 ./main.obj \
 ./systick.obj \
 ./tm4c123gh6pm_startup_ccs.obj 
@@ -52,6 +58,8 @@ OBJS__QUOTED += \
 "decoder.obj" \
 "eeprom.obj" \
 "eepromfunc.obj" \
+"lcd.obj" \
+"lcd_test.obj" \
 "main.obj" \
 "systick.obj" \
 "tm4c123gh6pm_startup_ccs.obj" 
@@ -64,6 +72,8 @@ C_DEPS__QUOTED += \
 "decoder.d" \
 "eeprom.d" \
 "eepromfunc.d" \
+"lcd.d" \
+"lcd_test.d" \
 "main.d" \
 "systick.d" \
 "tm4c123gh6pm_startup_ccs.d" 
@@ -76,6 +86,8 @@ C_SRCS__QUOTED += \
 "../decoder.c" \
 "../eeprom.c" \
 "../eepromfunc.c" \
+"../lcd.c" \
+"../lcd_test.c" \
 "../main.c" \
 "../systick.c" \
 "../tm4c123gh6pm_startup_ccs.c" 

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+/*
 #include "decoder.h"
 #include <stdlib.h>
 char getLatitudeDirection(char *code){
@@ -12,7 +13,7 @@ char getLatitudeDirection(char *code){
 		counter++;
 		token=strtok(NULL,",");
 	}
-if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=14){
+if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=13){
 	latitude =tokens[3][0];
 }
 return latitude;
@@ -31,7 +32,7 @@ char getlongitudeDirection(char *code){
 		counter++;
 		token=strtok(NULL,",");
 	}
-if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=14){
+if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=13){
 	longitude =tokens[5][0];
 }
 return longitude;
@@ -50,7 +51,7 @@ float getLatitude(char *code){
 		counter++;
 		token=strtok(NULL,",");
 	}
-if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=14){
+if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=13){
 	latitude =atof(tokens[2]);
 }
 return latitude;
@@ -71,7 +72,7 @@ float getlongitude(char *code){
 		counter++;
 		token=strtok(NULL,",");
 	}
-if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=14){
+if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=13){
 	longitude =atof(tokens[4]);
 }
 return longitude;
@@ -83,7 +84,7 @@ void refill(char *code,char *copy){
 	int i;
 	for(i=0;i<100;i++)
 	copy[i]=code[i];
-}
+}*/
 =======
 #include "decoder.h"
 #include <stdlib.h>
@@ -98,7 +99,7 @@ char getLatitudeDirection(char *code){
 		counter++;
 		token=strtok(NULL,",");
 	}
-if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=14){
+if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=13){
 	latitude =tokens[3][0];
 }
 return latitude;
@@ -118,7 +119,7 @@ char getlongitudeDirection(char *code){
 		counter++;
 		token=strtok(NULL,",");
 	}
-if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=14){
+if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=13){
 	longitude =tokens[5][0];
 }
 return longitude;
@@ -137,7 +138,7 @@ float getLatitude(char *code){
 		counter++;
 		token=strtok(NULL,",");
 	}
-if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=14){
+if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=13){
 	latitude =strtof(tokens[2],NULL);
 }
 return latitude;
@@ -157,7 +158,7 @@ float getlongitude(char *code){
             counter++;
             token=strtok(NULL,",");
         }
-    if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=14){
+    if (strncmp(tokens[0],"$GPGGA",6)==0 && counter>=13){
         longitude =strtof(tokens[4],NULL);
     }
     return longitude;

@@ -17,6 +17,8 @@ ORDERED_OBJS += \
 "./decoder.obj" \
 "./eeprom.obj" \
 "./eepromfunc.obj" \
+"./lcd.obj" \
+"./lcd_test.obj" \
 "./main.obj" \
 "./systick.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
@@ -150,8 +152,8 @@ Embedded2.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "CALC_DISP.obj" "GPIO_DRIVER.obj" "NMEA FNS.obj" "UART_INIT.obj" "decoder.obj" "eeprom.obj" "eepromfunc.obj" "main.obj" "systick.obj" "tm4c123gh6pm_startup_ccs.obj" 
-	-$(RM) "CALC_DISP.d" "GPIO_DRIVER.d" "NMEA FNS.d" "UART_INIT.d" "decoder.d" "eeprom.d" "eepromfunc.d" "main.d" "systick.d" "tm4c123gh6pm_startup_ccs.d" 
+	-$(RM) "CALC_DISP.obj" "GPIO_DRIVER.obj" "NMEA FNS.obj" "UART_INIT.obj" "decoder.obj" "eeprom.obj" "eepromfunc.obj" "lcd.obj" "lcd_test.obj" "main.obj" "systick.obj" "tm4c123gh6pm_startup_ccs.obj" 
+	-$(RM) "CALC_DISP.d" "GPIO_DRIVER.d" "NMEA FNS.d" "UART_INIT.d" "decoder.d" "eeprom.d" "eepromfunc.d" "lcd.d" "lcd_test.d" "main.d" "systick.d" "tm4c123gh6pm_startup_ccs.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
