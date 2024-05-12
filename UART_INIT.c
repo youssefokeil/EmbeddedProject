@@ -1,20 +1,38 @@
 <<<<<<< HEAD
 #include"UART_INIT.h"
 
-void UART_INI(void){
-	SYSCTL_RCGCUART_R |=0x01;
-	SYSCTL_RCGCGPIO_R |= 0x01;
-	GPIO_PORTA_LOCK_R =GPIO_LOCK_KEY; // unlocking the PORTS
-	GPIO_PORTA_CR_R |=0x003;
-	UART0_CTL_R=0;
-	UART0_IBRD_R=520;
+void UART_INIT(void){
+    // For GPS
+	SYSCTL_RCGCUART_R |=0x20; //1)UART5 =2^5
+	SYSCTL_RCGCGPIO_R |= 0x10; //2) GpioE= 2^5
+	while((SYSCTL_PRGPIO_R&0x10)==0);
+	GPIO_PORTE_LOCK_R =GPIO_LOCK_KEY; // unlocking the PORTS
+	GPIO_PORTE_AFSEL_R |=0x030; //3) AFSEL pe4,pe5
+	GPIO_PORTE_PCTL_R |= 0x30; //4) PCTL to pe4, pe5?
+     //
+	UART5_CTL_R=~(0x01);  // 1.1) Disable UARTEN
+	UART5_IBRD_R=520;      // (80MHz/16*9600)=520
+	UART5_FBRD_R=53;
+	UART5_LCRH_R=0x070; // 1.4)8bit,no parity bits, one stop,FIFOs
+	UART5_CTL_R|=0x301; //1.5) enabling the UART, TX, RX
+	GPIO_PORTE_DEN_R|=0x030; // PE4, PE5 Digital enable
+	GPIO_PORTE_AMSEL_R=~(0x30); // Disable analog function PE4, PE5
+
+	//Laptop
+	SYSCTL_RCGCUART_R |=0x01; //1)UART1 =2^0
+	SYSCTL_RCGCGPIO_R |= 0x01; //2) GpioA= 2^0
+	while((SYSCTL_PRGPIO_R&0x01)==0);
+	GPIO_PORTA_AFSEL_R |=0x003; //3) alternate function AFSEL PA1,PA0
+	GPIO_PORTA_PCTL_R |= 0x03; //4) PCTL to PA0, PA1
+	     //
+	UART0_CTL_R=~(0x01);  // 1.1) Disable UARTEN
+	UART0_IBRD_R=520;      // (80MHz/16*9600)=520
 	UART0_FBRD_R=53;
-	UART0_LCRH_R=0x070; // 8bit,no parity bits, one stop,FIFOs
-	UART0_CTL_R|=0x01; //enabling the UART, TX, RX
-	GPIO_PORTA_DEN_R|=0x03;
-	GPIO_PORTA_AFSEL_R|=0x003;
-	GPIO_PORTA_PCTL_R|=0x011;
-	GPIO_PORTA_AMSEL_R&=(~0x03); //enable transmit and rescieve and enable uart end of config
+	UART0_LCRH_R=0x070; // 1.4)8bit,no parity bits, one stop,FIFOs
+	UART0_CTL_R|=0x301; //1.5) enabling the UART, TX, RX
+	GPIO_PORTA_DEN_R|=0x003; // PA0, PA1 Digital enable
+	GPIO_PORTA_AMSEL_R=~(0x30); // Disable analog function PA1, PA0
+
 }
 uint8_t CHECK_UART_READ_DATA(void){
 	if((UART0_FR_R &(0x01<<4))==0)return 1;    //if not empty
@@ -23,8 +41,8 @@ uint8_t CHECK_UART_READ_DATA(void){
 
 
  char READ_UART(void){
-	while(CHECK_UART_READ_DATA()==0);
-	return((char)(UART0_DR_R&(0xFF))); //uint_8 ==>>> unsigned char modified
+	while(UART5_FR_R &(0x01<<4))==0);
+	return((char)(UART5_DR_R&(0xFF))); //uint_8 ==>>> unsigned char modified
 }
 
 void WRITE_UART(char data){
