@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "systick.h"
 #include "STD_TYPES.h"
 #include "tm4c123gh6pm.h"
@@ -85,6 +84,3 @@ void SysTick_Handler(void) {
 void Systick_setCallBack(void (*a_ptr)(void)) {
     g_callBackPtrSystick = (volatile void (*)(void))a_ptr;
 }
-=======
-
->>>>>>> 407b50c (Initialize UART5)

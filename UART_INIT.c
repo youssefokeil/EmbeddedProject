@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include"UART_INIT.h"
 
 void UART_INIT(void){
@@ -42,29 +41,14 @@ uint8_t CHECK_UART_READ_DATA(void){
 
 
  char READ_UART(void){
-	while(UART5_FR_R &(0x01<<4))==0);
+	while((UART5_FR_R &(0x01<<4))==0);
 	return((char)(UART5_DR_R&(0xFF))); //uint_8 ==>>> unsigned char modified
 }
 
 void WRITE_UART(char data){
 	while((UART0_FR_R&(0x01<<5))!=0);
 	UART0_DR_R=data;
-}/*
-unsigned char* code_sent(unsigned char* code){
-	
-	int flag=0;
-	int counter=0;
-	while(1){
-unsigned char test=(unsigned char)READ_UART;
-		WRITE_UART(test);
-	if(test=='$')
-		flag++;
-	if(flag==2)
-		return code;	
-	else
-		code[counter]=test;
-	}
-*/
+}
  void *GPS_GET_LINE( char *buffer){
 	//uint8_t buffer[82];    				//longest nema massege is 82
 	 char read_ch;			
@@ -90,7 +74,3 @@ unsigned char test=(unsigned char)READ_UART;
 		}
 	}
 }
-=======/*
-
-
->>>>>>> 407b50c (Initialize UART5)
