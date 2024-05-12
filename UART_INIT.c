@@ -24,7 +24,7 @@ void UART_INIT(void){
 	while((SYSCTL_PRGPIO_R&0x01)==0);
 
 	GPIO_PORTA_AFSEL_R |=0x003; //3) alternate function AFSEL PA1,PA0
-	GPIO_PORTA_PCTL_R |= 0x03; //4) PCTL to PA0, PA1
+	GPIO_PORTA_PCTL_R |= 0x011; //4) PCTL to PA0, PA1
 	     //
 	UART0_CTL_R=~(0x01);  // 1.1) Disable UARTEN
 	UART0_IBRD_R=520;      // (80MHz/16*9600)=520
