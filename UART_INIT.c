@@ -4,11 +4,11 @@
 void UART_INIT(void){
     // For GPS
 	SYSCTL_RCGCUART_R |=0x20; //1)UART5 =2^5
-	SYSCTL_RCGCGPIO_R |= 0x10; //2) GpioE= 2^5
+	SYSCTL_RCGCGPIO_R |= 0x10; //2) GpioE= 2^4
 	while((SYSCTL_PRGPIO_R&0x10)==0);
 	GPIO_PORTE_LOCK_R =GPIO_LOCK_KEY; // unlocking the PORTS
 	GPIO_PORTE_AFSEL_R |=0x030; //3) AFSEL pe4,pe5
-	GPIO_PORTE_PCTL_R |= 0x30; //4) PCTL to pe4, pe5?
+	GPIO_PORTE_PCTL_R |= 0x0110000; //4) PCTL to pe4, pe5?
      //
 	UART5_CTL_R=~(0x01);  // 1.1) Disable UARTEN
 	UART5_IBRD_R=520;      // (80MHz/16*9600)=520
@@ -22,6 +22,7 @@ void UART_INIT(void){
 	SYSCTL_RCGCUART_R |=0x01; //1)UART1 =2^0
 	SYSCTL_RCGCGPIO_R |= 0x01; //2) GpioA= 2^0
 	while((SYSCTL_PRGPIO_R&0x01)==0);
+
 	GPIO_PORTA_AFSEL_R |=0x003; //3) alternate function AFSEL PA1,PA0
 	GPIO_PORTA_PCTL_R |= 0x03; //4) PCTL to PA0, PA1
 	     //
