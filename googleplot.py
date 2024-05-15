@@ -8,7 +8,7 @@ lat = (df.iloc[:, 0]).tolist()
 lon = (df.iloc[:, 1]).tolist()
 
 # creating object googlemapplotter
-mapobj = gmplot.GoogleMapPlotter(lat[0], lon[0], 17, apikey="AIzaSyCT4n3MQijJptsK3cVWkxMKjdWpNxzIv9Q")
+mapobj = gmplot.GoogleMapPlotter(lat[0], lon[0], 17, apikey="AIzaSyDAWYxImCuC-VVPQFrNC8AYd7c0G16KDTQ")
 
 # scatter points on the Google map
 
