@@ -2,7 +2,7 @@ import os
 import gmplot
 import pandas as pd
 
-df = pd.read_csv('gps.csv')
+df = pd.read_csv('data.csv')
 
 lat = (df.iloc[:, 0]).tolist()
 lon = (df.iloc[:, 1]).tolist()
