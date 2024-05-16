@@ -9,7 +9,7 @@ void savingcsv(float *lat, float *lon, int n) {
 
 
     while (n--) {
-        printf("%f , %f\n", *lon, *lat);
+       // printf("%f , %f\n", *lon, *lat);
         fprintf(fp, "%f , %f\n", *lat, *lon);
         lat++;
         lon++;
@@ -17,7 +17,7 @@ void savingcsv(float *lat, float *lon, int n) {
 
     fclose(fp);
 }
-
+/*
 int main() {
     float lat[] = {11.02354,4536};
     float lon[] = {22.0325,435.5324};
@@ -25,4 +25,5 @@ int main() {
     savingcsv(lat, lon, 2);
     return 0;
 }
+*/
 
