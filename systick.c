@@ -75,16 +75,7 @@ void wait_10ms(uint32_t num) {
     }
 }
 
-void SysTick_Handler(void) {
-    if (g_callBackPtrSystick != NULL_PTR) {
-        // Call the callback function for SysTick interrupt
-        (*g_callBackPtrSystick)();
-    }
-}
 
-void Systick_setCallBack(void (*a_ptr)(void)) {
-    g_callBackPtrSystick = (volatile void (*)(void))a_ptr;
-}
 =======
 
 >>>>>>> 407b50c (Initialize UART5)
