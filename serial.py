@@ -20,7 +20,7 @@ with open('gps.csv', 'w', newline='') as csv_file:
         while True:
             # Wait for the user to press "U"
             #user_input = input("Press 'U' to receive data: ")
-            if user_input.upper() == 'U':
+            #if user_input.upper() == 'U':
                 # Read a line of data from the serial port
                 line = ser.readline().decode('utf-8').strip()
 
