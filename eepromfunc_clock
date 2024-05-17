@@ -1,0 +1,25 @@
+//initialization of eeprom
+
+
+void eeprom_initialization(){
+// Enable the EEPROM peripheral\
+	
+SysCtlClockSet(SYSCTL_SYSDIV_5|SYSCTL_USE_PLL|SYSCTL_XTAL_16MHZ|SYSCTL_OSC_MAIN);
+SysCtlDelay(20000000);
+SysCtlPeripheralEnable(SYSCTL_PERIPH_EEPROM0);
+EEPROMInit();
+EEPROMMassErase();
+EEPROMProgram((uint32_t*)&lat_int,0x0000,sizeof(lat_int));
+EEPROMProgram((uint32_t*)&lon_int,0x200,sizeof(lon_int));
+EEPROMProgram((uint32_t*)&distance_sent,0x400,sizeof(distance_sent));
+}
+
+void eeprom_read(){
+SysCtlClockSet(SYSCTL_SYSDIV_5|SYSCTL_USE_PLL|SYSCTL_XTAL_16MHZ|SYSCTL_OSC_MAIN);
+SysCtlDelay(20000000);
+SysCtlPeripheralEnable(SYSCTL_PERIPH_EEPROM0);
+EEPROMInit();	
+EEPROMRead((uint32_t*)&lat_int,0x0000,sizeof(lat_int));
+EEPROMRead((uint32_t*)&lon_int,0x200,sizeof(lon_int));
+EEPROMRead((uint32_t*)&distance_sent,0x400,sizeof(distance_sent));
+}
